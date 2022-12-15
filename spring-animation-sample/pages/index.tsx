@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Canvas } from '@react-three/fiber'
+import {Canvas} from '@react-three/fiber'
 import Style from 'styles/Home.module.css'
 import Mesh1 from '../mesh/SphereStandardMesh';
 import Mesh2 from '../mesh/SphereWireframeMesh';

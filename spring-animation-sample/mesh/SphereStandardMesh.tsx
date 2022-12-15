@@ -1,13 +1,13 @@
 import * as THREE from 'three'
 import * as React from 'react'
-import { useRef, useState } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { a, useSpring } from "@react-spring/three"
+import {useRef, useState} from 'react'
+import {useFrame} from '@react-three/fiber'
+import {a, useSpring} from "@react-spring/three"
 
 export default function SphereStandardMesh(props: JSX.IntrinsicElements['mesh']) {
     const ref = useRef<THREE.Mesh>(null!)
     const [hovered, hover] = useState(false)
-    const { scale, opacity } = useSpring({ scale: hovered ? 1.2 : 1, opacity: hovered ? 0.0 : 1.0 })
+    const {scale, opacity} = useSpring({scale: hovered ? 1.2 : 1, opacity: hovered ? 0.0 : 1.0})
 
     useFrame((state, delta) => {
         state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, state.mouse.x / 5, 0.1)
@@ -25,13 +25,13 @@ export default function SphereStandardMesh(props: JSX.IntrinsicElements['mesh'])
             ref={ref}
             scale={scale}
             onPointerOver={(event) => hover(true)}
-            onPointerOut={(event) => hover(false)} >
-            <sphereGeometry args={[1, 20, 15]} />
+            onPointerOut={(event) => hover(false)}>
+            <sphereGeometry args={[1, 20, 15]}/>
             <a.meshStandardMaterial
                 color={'gray'}
                 opacity={opacity}
                 flatShading
-                transparent />
+                transparent/>
         </a.mesh>
     )
 }
